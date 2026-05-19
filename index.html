@@ -484,18 +484,20 @@
                 <!-- Карточка 1 (Админ) -->
                 <div class="team-member">
                     <div class="member-avatar">👑</div>
-                    <!-- Замени FriendName на ник друга -->
-                    <div class="member-name">FriendName</div>
-                    <div class="member-role" id="role-admin">Создатель</div>
+                    <!-- Добавили id="admin-name" -->
+                    <div class="member-name" id="admin-name">NikitaKFD</div>
+                    <div class="member-role" id="role-admin">Hoster</div>
                 </div>
                 <!-- Карточка 2 (Ты/Второй админ) -->
                 <div class="team-member">
-                    <div class="member-avatar">🛠️</div>
-                    <div class="member-name">ТвойНик</div>
-                    <div class="member-role mod" id="role-mod">Разработчик</div>
+                    <div class="member-avatar">🛠</div>
+                    <!-- Добавили id="mod-name" -->
+                    <div class="member-name" id="mod-name">BlueTeam official</div>
+                    <div class="member-role-mod" id="role-mod">Creator</div>
                 </div>
             </div>
         </div>
+
 
         <!-- КАРТОЧКА 5: СВЯЗЬ С АДМИНОМ -->
         <div class="card">
@@ -522,8 +524,7 @@
 
     </div>
 
-    <script>
-        const translations = {
+    <script>const translations = {
             ru: {
                 title: "Сервер Minecraft Forge v1.21.11 | Главная",
                 mainTitle: "🟢 СЕРВЕР MINECRAFT FORGE v1.21.11",
@@ -549,6 +550,9 @@
                 cardTeamTitle: "👑 НАША КОМАНДА",
                 roleAdmin: "Создатель",
                 roleMod: "Разработчик",
+                adminName: "NikitaKFD",
+                modName: "BlueTeam official",
+
                 cardAdminTitle: "💬 СВЯЗЬ С АДМИНИСТРАЦИЕЙ",
                 adminDesc: "Если сервер выключен, напиши админу, чтобы он его запустил!",
                 adminBtn: "🟢 НАПИСАТЬ АДМИНУ",
@@ -693,6 +697,9 @@
             document.getElementById('role-admin').innerText = translations[lang].roleAdmin;
             document.getElementById('role-mod').innerText = translations[lang].roleMod;
 
+            document.getElementById('admin-name').innerText = translations[lang].adminName;
+            document.getElementById('mod-name').innerText = translations[lang].modName;
+
             document.getElementById('card-admin-title').innerText = translations[lang].cardAdminTitle;
             document.getElementById('admin-desc').innerText = translations[lang].adminDesc;
             document.getElementById('admin-btn').innerText = translations[lang].adminBtn;
@@ -707,7 +714,6 @@
             const serverIP = document.getElementById('server-ip-text').innerText;
             navigator.clipboard.writeText(serverIP);
             alert(translations[currentLang].alertCopy);
-        }
-    </script>
+        }</script>
 </body>
 </html>
