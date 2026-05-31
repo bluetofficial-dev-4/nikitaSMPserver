@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="site-title">Сервер Minecraft Forge v1.21.11 | Главная</title>
+    <title id="site-title">Майнкрафт сервер NikitaSMP | Главная</title>
     <style>
         :root {
             --bg-main: #0a0a0a;
@@ -187,6 +187,19 @@
                 border-color: rgba(0, 255, 102, 0.3);
                 box-shadow: 0 0 15px rgba(0, 255, 102, 0.05);
             }
+        .media-card img, .media-card iframe {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .media-card:hover {
+            border-color: var(--matrix-green) !important;
+            box-shadow: var(--neon-glow) !important;
+            transform: translateY(-5px);
+        }
 
         .ip-container {
             position: relative;
@@ -409,6 +422,37 @@
             color: #e0e0e0;
             line-height: 1.5;
         }
+        .bottom-card {
+            max-width: 770px !important; /* Ставим 800 пикселей */
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 100% !important;
+        }
+
+
+        /* Делаем карточки админов аккуратными прямоугольниками */
+        .team-grid {
+            display: flex !important;
+            gap: 20px !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+        }
+
+        .team-member {
+            flex: 1 !important;
+            min-width: 250px !important;
+            max-width: 380px !important;
+            text-align: center !important;
+        }
+        /* Сжимаем зелёную кнопку по центру */
+        .matrix-btn {
+            display: block !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            margin: 20px auto 0 auto !important;
+            text-align: center !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -434,7 +478,7 @@
     </div>
 
     <header>
-        <h1 id="main-title">🟢 СЕРВЕР MINECRAFT FORGE v1.21.11</h1>
+        <h1 id="main-title">Главная</h1>
         <p id="main-subtitle">Наш уютный игровой мир на платформе Aternos</p>
     </header>
 
@@ -446,7 +490,7 @@
             <div class="ip-container" onclick="copyIP()">
                 <!-- ФИКС: Поменяй этот IP на ваш реальный Атернос, чтобы работал мониторинг -->
                 <span id="server-ip-text">nikitakfdSMP-kME6.aternos.me:36351</span>
-                <span class="ip-hint" id="ip-hint-text">Нажми на поле, чтобы скопировать IP-адрес</span>
+                <span class="ip-hint" id="ip-hint-text">Скопировать IP-адрес</span>
             </div>
             <!-- Индикатор живого онлайна -->
             <div class="status-bar">
@@ -477,8 +521,56 @@
             </ul>
         </div>
 
+        <!-- СЕКЦИЯ СО СКРИНШОТАМИ И ВИДЕО -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 25px;">
+
+            <!-- Карточка 1: Главный дом -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="mainhouse-screen.jpg" alt="Главный дом">
+                <div id="mainhouse_screen" style="padding: 10px; text-align: center; color: #fff;">Главный дом</div>
+            </div>
+
+            <!-- Карточка 2: Кузница -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="blacksmith.jpg" alt="Кузница">
+                <div id="blacksmith_screen" style="padding: 10px; text-align: center; color: #fff;">Кузница</div>
+            </div>
+
+            <!-- Карточка 3: Дом для учёных -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="scientist-player-house.jpg" alt="Дом для учёных (дом игрока-учёного)">
+                <div id="scientist_house_screen" style="padding: 10px; text-align: center; color: #fff;">Дом для учёных (дом игрока-учёного)</div>
+            </div>
+
+            <!-- Карточка 4: Пляж -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="the-beach.jpg" alt="Пляж">
+                <div id="beach_screen" style="padding: 10px; text-align: center; color: #fff;">Пляж</div>
+            </div>
+
+            <!-- Карточка 5: Стойка с правилами сервера (ПРОБЕЛ В ИМЕНИ ИСПРАВЛЕН) -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="stand-about-serverrules.jpg" alt="Стойка с правилами сервера">
+                <div id="stand_serverules_screen" style="padding: 10px; text-align: center; color: #fff;">Стойка с правилами сервера</div>
+            </div>
+
+            <!-- Карточка 6: Секретный скриншот -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px;">
+                <img src="secret-screen.jpg" alt="Секретный скриншот">
+                <div id="secret_screen" style="padding: 10px; text-align: center; color: #fff;">Секретный скриншот</div>
+            </div>
+
+            <!-- Карточка 7: Трейлер -->
+            <div class="card media-card" style="flex: 1; min-width: 300px; max-width: 450px; display: flex; align-items: center; justify-content: center;">
+                <video src="trailer.mp4" controls preload="metadata" style="width: 100%; height: auto; border-radius: 6px; border: none; display: block;"></video>
+            </div>
+
+        </div>
+    </div>
+
         <!-- КАРТОЧКА 4: НАША КОМАНДА -->
-        <div class="card">
+        <div class="card bottom-card">
+
             <h2 id="card-team-title">👑 НАША КОМАНДА</h2>
             <div class="team-grid">
                 <!-- Карточка 1 (Админ) -->
@@ -500,16 +592,18 @@
 
 
         <!-- КАРТОЧКА 5: СВЯЗЬ С АДМИНОМ -->
-        <div class="card">
+        <div class="card bottom-card">
+
             <h2 id="card-admin-title">💬 СВЯЗЬ С АДМИНИСТРАЦИЕЙ</h2>
             <p style="color: var(--text-muted); margin-top: 0; margin-bottom: 20px;" id="admin-desc">
                 Если сервер выключен, напиши админу, чтобы он его запустил!
             </p>
-            <a href="https://vk.com" target="_blank" class="matrix-btn" id="admin-btn">🟢 НАПИСАТЬ АДМИНУ</a>
+            <a href="https://vk.com/bluetofficial4" target="_blank" class="matrix-btn" id="admin-btn">🟢 НАПИСАТЬ АДМИНУ</a>
         </div>
 
         <!-- КАРТОЧКА 6: ЗАМЕТКИ И ОБЪЯВЛЕНИЯ -->
-        <div class="card">
+        <div class="card bottom-card">
+
             <h2 id="card-news-title">📓 ЗАМЕТКИ И ОБЪЯВЛЕНИЯ</h2>
             <div class="news-feed">
                 <div class="news-item" id="latest-news" data-news-id="news_update_1211">
@@ -524,29 +618,37 @@
 
     </div>
 
-    <script>const translations = {
+    <script>
+    const translations = {
             ru: {
-                title: "Сервер Minecraft Forge v1.21.11 | Главная",
-                mainTitle: "🟢 СЕРВЕР MINECRAFT FORGE v1.21.11",
+                title: "Майнкрафт сервер NikitaSMP | Главная",
+                mainTitle: "Главная",
                 mainSubtitle: "Наш уютный игровой мир на платформе Aternos",
                 modalTitle: "НАСТРОЙКИ",
                 modalDesc: "Выберите язык интерфейса:",
                 cardIpTitle: "🔗 АДРЕС ДЛЯ ПОДКЛЮЧЕНИЯ",
-                ipHintText: "Нажми на поле, чтобы скопировать IP-адрес",
+                ipHintText: "Скопировать IP-адрес",
                 cardGuideTitle: "📝 КАК НАЧАТЬ ИГРАТЬ?",
                 guideList: `
-                        <li>Запусти свой лаунчер (рекомендем TLauncher).</li>
-                        <li>Выбери чистую версию игры <b>Forge 1.21.11</b> (без модов).</li>
-                        <li>Убедись у админа, что <b>сервер на Aternos сейчас запущен</b>.</li>
-                        <li>Скопируй IP-адрес выше, вставляй его в игре и заходи!</li>
-                    `,
+                            <li>Запусти свой лаунчер (рекомендем TLauncher).</li>
+                            <li>Выбери чистую версию игры <b>Forge 1.21.11</b> (без модов).</li>
+                            <li>Убедись у админа, что <b>сервер на Aternos сейчас запущен</b>.</li>
+                            <li>Скопируй IP-адрес выше, вставляй его в игре и заходи!</li>
+                        `,
                 cardRulesTitle: "🛡️ ПРАВИЛА СЕРВЕРА",
                 rulesList: `
-                        <li><b>Запрещено использование читов</b>, X-Ray текстур и любых багов игры. Бан навсегда!</li>
-                        <li><b>Уважайте чужие постройки</b>. Запрещен любой гриферство, воровство ресурсов и поджоги.</li>
-                        <li><b>Адекватное поведение в чате</b>. Без оскорблений, спама и мата. Давайте жить дружно!</li>
-                        <li><b>Решения администрации окончательны</b>. Слушайтесь админа, он следит за порядком.</li>
-                    `,
+                            <li><b>Запрещено использование читов</b>, X-Ray текстур и любых багов игры. Бан навсегда!</li>
+                            <li><b>Уважайте чужие постройки</b>. Запрещен любой гриферство, воровство ресурсов и поджоги.</li>
+                            <li><b>Адекватное поведение в чате</b>. Без оскорблений, спама и мата. Давайте жить дружно!</li>
+                            <li><b>Решения администрации окончательны</b>. Слушайтесь админа, он следит за порядком.</li>
+                        `,
+                mainhouse_screen: "Главный дом",
+                blacksmith_screen: "Кузница",
+                scientist_house_screen: "Дом для учёных (дом игрока-учёного)",
+                beach_screen: "Пляж",
+                stand_serverules_screen: "Стойка с правилами сервера",
+                secret_screen: "Секретный скриншот",
+
                 cardTeamTitle: "👑 НАША КОМАНДА",
                 roleAdmin: "Создатель",
                 roleMod: "Разработчик",
@@ -566,28 +668,35 @@
                 statusOnline: "Сервер ОНЛАЙН | Игроков: "
             },
             en: {
-                title: "Minecraft Forge Server v1.21.11 | Home",
-                mainTitle: "🟢 MINECRAFT FORGE SERVER v1.21.11",
+                title: "Minecraft server NikitaSMP | Home",
+                mainTitle: "Home",
                 mainSubtitle: "Our cozy game world on the Aternos platform",
                 modalTitle: "SETTINGS",
                 modalDesc: "Select interface language:",
                 cardIpTitle: "🔗 CONNECTION ADDRESS",
-                ipHintText: "Click on the box to copy the IP address",
+                ipHintText: "Copy IP-address",
                 cardGuideTitle: "📝 HOW TO START PLAYING?",
                 guideList: `
-                        <li>Launch your launcher (TLauncher is recommended).</li>
-                        <li>Select a clean version of the game: <b>Forge 1.21.11</b> (without mods).</li>
-                        <li>Make sure from the admin that the <b>Aternos server is currently running</b>.</li>
-                        <li>Copy the IP address above, paste it into the game, and log in!</li>
+                            <li>Launch your launcher (TLauncher is recommended).</li>
+                            <li>Select a clean version of the game: <b>Forge 1.21.11</b> (without mods).</li>
+                            <li>Make sure from the admin that the <b>Aternos server is currently running</b>.</li>
+                            <li>Copy the IP address above, paste it into the game, and log in!</li>
 
-                    `,
+                        `,
                 cardRulesTitle: "🛡️ SERVER RULES",
                 rulesList: `
-                        <li><b>Cheating is prohibited</b>, X-Ray textures and any bugs. Permanent ban!</li>
-                        <li><b>Respect other buildings</b>. Any griefing, resource theft and arson are prohibited.</li>
-                        <li><b>Behave appropriately in chat</b>. No insults, spam or swear words. Let's play friendly!</li>
-                        <li><b>Admin decisions are final</b>. Obey the admin, he watches over everything.</li>
-                    `,
+                            <li><b>Cheating is prohibited</b>, X-Ray textures and any bugs. Permanent ban!</li>
+                            <li><b>Respect other buildings</b>. Any griefing, resource theft and arson are prohibited.</li>
+                            <li><b>Behave appropriately in chat</b>. No insults, spam or swear words. Let's play friendly!</li>
+                            <li><b>Admin decisions are final</b>. Obey the admin, he watches over everything.</li>
+                        `,
+                mainhouse_screen: "Main house",
+                blacksmith_screen: "Blacksmith",
+                scientist_house_screen: "House from scientists (house from scientist player)",
+                beach_screen: "Beach",
+                stand_serverules_screen: "Stand about server rules",
+                secret_screen: "Secret screenshoot",
+
                 cardTeamTitle: "👑 OUR TEAM",
                 roleAdmin: "Owner",
                 roleMod: "Developer",
@@ -619,13 +728,14 @@
                 Notification.requestPermission();
             }
             checkNewNotification();
-            updateServerStatus(); // Запуск проверки онлайна
+            setTimeout(updateServerStatus, 5000);
             setInterval(updateServerStatus, 30000); // Обновлять статус каждые 30 секунд
         });
 
         // Функция ЖИВОГО ОНЛАЙНА через бесплатный API
         function updateServerStatus() {
-            const ip = document.getElementById('server-ip-text').innerText.trim();
+            const fullIp = document.getElementById('server-ip-text').innerText.trim();
+            const ip = fullIp.split(':')[0];
             const dot = document.getElementById('online-dot');
             const text = document.getElementById('online-status-text');
 
@@ -649,6 +759,13 @@
                     text.style.color = "#ff3333";
                 });
         }
+
+            keys.forEach(key => {
+                const element = document.getElementById(key);
+                if (element && langObject[key]) {
+                    element.textContent = langObject[key];
+                }
+            });
 
         function checkNewNotification() {
             if (!("Notification" in window) || Notification.permission !== "granted") return;
@@ -711,6 +828,15 @@
             document.getElementById('tag-update').innerText = translations[lang].tagUpdate;
             document.getElementById('news-text-2').innerText = translations[lang].newsText2;
 
+            // Замените ваши новые строчки в конце функции на этот безопасный вариант:
+            if (document.getElementById('mainhouse_screen')) document.getElementById('mainhouse_screen').innerText = translations[lang].mainhouse_screen;
+            if (document.getElementById('blacksmith_screen')) document.getElementById('blacksmith_screen').innerText = translations[lang].blacksmith_screen;
+            if (document.getElementById('scientist_house_screen')) document.getElementById('scientist_house_screen').innerText = translations[lang].scientist_house_screen;
+            if (document.getElementById('beach_screen')) document.getElementById('beach_screen').innerText = translations[lang].beach_screen;
+            if (document.getElementById('stand_serverules_screen')) document.getElementById('stand_serverules_screen').innerText = translations[lang].stand_serverules_screen;
+            if (document.getElementById('secret_screen')) document.getElementById('secret_screen').innerText = translations[lang].secret_screen;
+
+
             updateServerStatus(); // Обновляем текст статуса на новом языке
         }
 
@@ -718,6 +844,7 @@
             const serverIP = document.getElementById('server-ip-text').innerText;
             navigator.clipboard.writeText(serverIP);
             alert(translations[currentLang].alertCopy);
-        }</script>
+        }
+        </script>
 </body>
 </html>
